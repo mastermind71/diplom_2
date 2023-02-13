@@ -32,7 +32,7 @@ private String accessToken;
         Assert.assertEquals(actualStatus, expectedStatus);
     }
     @Test
-    public void getOrderWithoutAutorization(){
+    public void getOrderWithoutAuthorization(){
         Response response = OrderApi.getOrderWithoutAuth();
         response.then().statusCode(SC_UNAUTHORIZED);
         String actualError = response.then().extract().path("message").toString();

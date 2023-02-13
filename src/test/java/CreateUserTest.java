@@ -7,13 +7,6 @@ import static org.apache.http.HttpStatus.*;
 
 public class CreateUserTest {
     private String accessToken;
-    private UserApi userApi;
-
-    @Before
-    public void setUp() {
-        userApi = new UserApi();
-
-    }
     @Test
     public void weCanCreateUser(){
         Response response = UserApi.createUser("makavelka71@gmail.com", "123456789", "Dmitry");

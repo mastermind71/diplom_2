@@ -40,7 +40,7 @@ public class CreateOrderTest {
         Assert.assertEquals(actualStatus, expectedStatus);
     }
     @Test
-    public void createOrderWithoutAutorization(){
+    public void createOrderWithoutAuthorization(){
         Response response = OrderApi.getIngredient();
         List <String> ingredients = new ArrayList<>();
         ingredients.add(response.then().extract().path("data[0]._id"));
@@ -54,8 +54,8 @@ public class CreateOrderTest {
     }
     @Test
     public void createOrderWithoutIngredients(){
-        List <String> ingredietns = new ArrayList<>();
-        DataForOrder dataForOrder = new DataForOrder(ingredietns);
+        List <String> ingredients = new ArrayList<>();
+        DataForOrder dataForOrder = new DataForOrder(ingredients);
         Response response = OrderApi.createOrderWithoutAutorization(dataForOrder);
         response.then().statusCode(SC_BAD_REQUEST);
         String actualError = response.then().extract().path("message").toString();
